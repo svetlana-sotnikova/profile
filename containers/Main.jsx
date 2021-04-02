@@ -1,3 +1,7 @@
-import React from 'react';
+import { styled } from '@compiled/react';
 
-export const Main = () => <div>hi</div>;
+export const Main = () => <H1>hi</H1>;
+
+const H1 = styled.h1`
+  color: red;
+`;
