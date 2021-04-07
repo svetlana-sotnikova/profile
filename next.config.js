@@ -1,10 +1,7 @@
-module.exports = {
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.jsx$/,
-      use: ['@compiled/webpack-loader'],
-    });
+const withOptimizedImages = require('next-optimized-images');
 
-    return config;
+module.exports = withOptimizedImages({
+  future: {
+    webpack5: true,
   },
-};
+});
