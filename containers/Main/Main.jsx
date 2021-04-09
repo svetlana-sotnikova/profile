@@ -1,5 +1,7 @@
-import { styled } from '@compiled/react';
+import { css, Global } from '@emotion/react';
+import styled from '@emotion/styled';
 import Head from 'next/head';
+const photo = require('./photo.png');
 
 export const Main = () => (
   <>
@@ -10,8 +12,19 @@ export const Main = () => (
       />
     </Head>
 
-    <Photo></Photo>
+    <Global
+      styles={css`
+        body {
+          margin: 0;
+          font: 24px/1.2 'Inter', sans-serif;
+          color: #000;
+        }
+      `}
+    />
+
     <Container>
+      <Photo src={require('./photo.png')} width="380" />
+
       <Info>
         <H1>Front-end разработчик</H1>
         <H2>Светлана Сотникова</H2>
@@ -23,15 +36,17 @@ export const Main = () => (
 
         <ContactList>
           <ContactItem style={{ marginLeft: 0 }}>
-            <Link href="#">Telegram</Link>
+            <Link href="https://t.me/svetlana_data">Telegram</Link>
           </ContactItem>
 
           <ContactItem>
-            <Link href="#">GitHub</Link>
+            <Link href="https://github.com/svetlana-sotnikova">GitHub</Link>
           </ContactItem>
 
           <ContactItem>
-            <Link href="#">E-mail</Link>
+            <Link href="mailto:svetlana.data@mail.ru">
+              svetlana.data@mail.ru
+            </Link>
           </ContactItem>
         </ContactList>
 
@@ -42,32 +57,49 @@ export const Main = () => (
 );
 
 const Container = styled.div`
-  font-family: 'Inter', sans-serif;
-  font-size: 24px;
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
-  padding: 0 15px;
-  /* 
-  body {
-    margin: 0;
-  } */
+
+  @media (min-width: 1024px) and (max-width: 1280px) {
+    align-items: flex-start;
+  }
+  @media (max-width: 1023px) {
+    padding: 40px 15px;
+  }
 `;
 
 const Info = styled.div`
-  max-width: 640px;
+  max-width: 580px;
+
+  @media (min-width: 1024px) and (max-width: 1280px) {
+    margin: 40px 60px;
+  }
 `;
 
 const H1 = styled.h1`
   font-size: 48px;
   margin: 10px 0;
+
+  @media (max-width: 375px) {
+    font-size: 36px;
+  }
+  @media (max-width: 1023px) {
+    margin-top: 40px;
+  }
 `;
 
 const H2 = styled.h2`
   font-size: 36px;
   margin: 10px 0;
+
+  @media (max-width: 375px) {
+    font-size: 24px;
+  }
 `;
 
 const Text = styled.div`
@@ -80,6 +112,11 @@ const ContactList = styled.div`
 
 const ContactItem = styled.span`
   margin: 0 24px;
+
+  @media (max-width: 767px) {
+    display: block;
+    margin: 10px 0;
+  }
 `;
 
 const Link = styled.a`
@@ -95,8 +132,23 @@ const Button = styled.a`
   box-shadow: inset 0px 0px 2px #000000;
   border-radius: 100px;
   padding: 24px 36px;
+
+  @media (max-width: 425px) {
+    font-size: 18px;
+  }
 `;
 
 const Photo = styled.img`
-  background: red;
+  position: absolute;
+  right: -40px;
+  bottom: -20px;
+  border-radius: 380px;
+  z-index: -1;
+
+  @media (max-width: 425px) {
+    width: 250px;
+  }
+  @media (max-width: 1023px) {
+    position: static;
+  }
 `;
