@@ -35,10 +35,10 @@ export const Main = () => {
           <H1>Front-end разработчик</H1>
           <H2>Светлана Сотникова</H2>
 
-          <Text>
+          <Paragraph>
             Разрабатываю сайты на React. Использую Next.js, Styled Components,
             Figma, Photoshop.
-          </Text>
+          </Paragraph>
 
           <ContactList>
             <ContactItem style={{ marginLeft: 0 }}>
@@ -119,7 +119,7 @@ const H2 = styled.h2`
   }
 `;
 
-const Text = styled.div`
+const Paragraph = styled.p`
   margin: 40px 0;
 `;
 

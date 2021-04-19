@@ -12,6 +12,14 @@ export const Button = styled.button`
   font: inherit;
   cursor: pointer;
 
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: 0.8;
+  }
+
   @media (max-width: 425px) {
     font-size: 18px;
   }
