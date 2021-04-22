@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 import { Button } from '../../components';
 import { EmailForm } from '../EmailForm';
-const photo = require('./photo.png');
+import photo from './photo.png';
 
 export const Main = () => {
   const [isVisibleForm, setIsVisibleForm] = useState(false);
@@ -12,10 +12,43 @@ export const Main = () => {
   return (
     <>
       <Head>
+        <title>Front-end разработчик Светлана Сотникова</title>
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#188837" />
+        <meta
+          name="description"
+          content={
+            'Разрабатываю сайты на React.' +
+            ' Использую Next.js, Styled Components, Figma, Photoshop.'
+          }
+        />
+        <meta
+          name="keywords"
+          content="front-end, разработчик, разработка, React, JavaScript"
+        />
+        <meta name="msapplication-TileColor" content="#188837" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
 
       <Global
@@ -29,7 +62,7 @@ export const Main = () => {
       />
 
       <Container>
-        <Photo src={require('./photo.png')} width="380" />
+        <Photo src={photo} width="380" />
 
         <Info>
           <H1>Front-end разработчик</H1>
